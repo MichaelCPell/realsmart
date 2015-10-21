@@ -5,9 +5,11 @@ class CreatePrecincts < ActiveRecord::Migration
       t.string :county_id
       t.string :official_id
       t.string :official_description
+      t.integer :shape_lenth
+      t.integer :shape_area
       t.multi_polygon :geom, srid: 4326 
 
-      t.timestamps 
+      t.timestamps null: false
     end
   end
 end
