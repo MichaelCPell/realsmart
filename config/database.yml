@@ -7,7 +7,7 @@
 default: &default
   adapter: postgis
   encoding: unicode
-  pool: 5
+  pool: 200
   timeout: 5000
   database: realsmart
   schema_search_path: "geom,demog,public"

@@ -9,7 +9,7 @@ class CreatePrecincts < ActiveRecord::Migration
       t.integer :shape_area
       t.multi_polygon :geom, srid: 4326 
 
-      t.timestamps null: false
+      t.timestamps 
     end
   end
 end

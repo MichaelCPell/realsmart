@@ -1,0 +1,79 @@
+class CreateVoters < ActiveRecord::Migration
+ def change
+  create_table "demog.voters" do |t|
+    t.string :county_id
+    t.string :county_desc
+    t.string :voter_reg_num
+    t.string :status_cd
+    t.string :voter_status_desc
+    t.string :reason_cd
+    t.string :voter_status_reason_desc
+    t.string :absent_ind
+    t.string :name_prefx_cd
+    t.string :last_name
+    t.string :first_name
+    t.string :middle_name
+    t.string :name_suffix_lbl
+    t.string :res_street_address
+    t.string :res_city_desc
+    t.string :state_cd
+    t.string :zip_code
+    t.string :mail_addr1
+    t.string :mail_addr2
+    t.string :mail_addr3
+    t.string :mail_addr4
+    t.string :mail_city
+    t.string :mail_state
+    t.string :mail_zipcode
+    t.string :full_phone_number
+    t.string :race_code
+    t.string :ethnic_code
+    t.string :party_cd
+    t.string :gender_code
+    t.string :birth_age
+    t.string :birth_state
+    t.string :drivers_lic
+    t.string :registr_dt
+    t.string :precinct_abbrv
+    t.string :precinct_desc
+    t.string :municipality_abbrv
+    t.string :municipality_desc
+    t.string :ward_abbrv
+    t.string :ward_desc
+    t.string :cong_dist_abbrv
+    t.string :super_court_abbrv
+    t.string :judic_dist_abbrv
+    t.string :nc_senate_abbrv
+    t.string :nc_house_abbrv
+    t.string :county_commiss_abbrv
+    t.string :county_commiss_desc
+    t.string :township_abbrv
+    t.string :township_desc
+    t.string :school_dist_abbrv
+    t.string :school_dist_desc
+    t.string :fire_dist_abbrv
+    t.string :fire_dist_desc
+    t.string :water_dist_abbrv
+    t.string :water_dist_desc
+    t.string :sewer_dist_abbrv
+    t.string :sewer_dist_desc
+    t.string :sanit_dist_abbrv
+    t.string :sanit_dist_desc
+    t.string :rescue_dist_abbrv
+    t.string :rescue_dist_desc
+    t.string :munic_dist_abbrv
+    t.string :munic_dist_desc
+    t.string :dist_1_abbrv
+    t.string :dist_1_desc
+    t.string :dist_2_abbrv
+    t.string :dist_2_desc
+    t.string :confidential_ind
+    t.string :age
+    t.string :ncid
+    t.string :vtd_abbrv
+    t.string :vtd_desc
+
+    t.timestamps
+  end
+ end
+end

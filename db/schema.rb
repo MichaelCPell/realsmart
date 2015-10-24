@@ -11,11 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151020203334) do
+ActiveRecord::Schema.define(version: 20151023182842) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "postgis"
+  enable_extension "postgis_topology"
+  enable_extension "fuzzystrmatch"
+
+  create_table "districts", force: :cascade do |t|
+    t.string   "county_name"
+    t.string   "office"
+    t.string   "number"
+    t.float    "shape_len"
+    t.float    "shape_area"
+    t.geometry "geom",        limit: {:srid=>4326, :type=>"multi_polygon"}
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "precincts", force: :cascade do |t|
     t.string   "county_name"
@@ -40,6 +53,85 @@ ActiveRecord::Schema.define(version: 20151020203334) do
     t.geometry "geom",             limit: {:srid=>4326, :type=>"multi_polygon"}
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "voters", force: :cascade do |t|
+    t.string   "county_id"
+    t.string   "county_desc"
+    t.string   "voter_reg_num"
+    t.string   "status_cd"
+    t.string   "voter_status_desc"
+    t.string   "reason_cd"
+    t.string   "voter_status_reason_desc"
+    t.string   "absent_ind"
+    t.string   "name_prefx_cd"
+    t.string   "last_name"
+    t.string   "first_name"
+    t.string   "middle_name"
+    t.string   "name_suffix_lbl"
+    t.string   "res_street_address"
+    t.string   "res_city_desc"
+    t.string   "state_cd"
+    t.string   "zip_code"
+    t.string   "mail_addr1"
+    t.string   "mail_addr2"
+    t.string   "mail_addr3"
+    t.string   "mail_addr4"
+    t.string   "mail_city"
+    t.string   "mail_state"
+    t.string   "mail_zipcode"
+    t.string   "full_phone_number"
+    t.string   "race_code"
+    t.string   "ethnic_code"
+    t.string   "party_cd"
+    t.string   "gender_code"
+    t.string   "birth_age"
+    t.string   "birth_state"
+    t.string   "drivers_lic"
+    t.string   "registr_dt"
+    t.string   "precinct_abbrv"
+    t.string   "precinct_desc"
+    t.string   "municipality_abbrv"
+    t.string   "municipality_desc"
+    t.string   "ward_abbrv"
+    t.string   "ward_desc"
+    t.string   "cong_dist_abbrv"
+    t.string   "super_court_abbrv"
+    t.string   "judic_dist_abbrv"
+    t.string   "nc_senate_abbrv"
+    t.string   "nc_house_abbrv"
+    t.string   "county_commiss_abbrv"
+    t.string   "county_commiss_desc"
+    t.string   "township_abbrv"
+    t.string   "township_desc"
+    t.string   "school_dist_abbrv"
+    t.string   "school_dist_desc"
+    t.string   "fire_dist_abbrv"
+    t.string   "fire_dist_desc"
+    t.string   "water_dist_abbrv"
+    t.string   "water_dist_desc"
+    t.string   "sewer_dist_abbrv"
+    t.string   "sewer_dist_desc"
+    t.string   "sanit_dist_abbrv"
+    t.string   "sanit_dist_desc"
+    t.string   "rescue_dist_abbrv"
+    t.string   "rescue_dist_desc"
+    t.string   "munic_dist_abbrv"
+    t.string   "munic_dist_desc"
+    t.string   "dist_1_abbrv"
+    t.string   "dist_1_desc"
+    t.string   "dist_2_abbrv"
+    t.string   "dist_2_desc"
+    t.string   "confidential_ind"
+    t.string   "age"
+    t.string   "ncid"
+    t.string   "vtd_abbrv"
+    t.string   "vtd_desc"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.geometry "location",                 limit: {:srid=>4326, :type=>"geometry"}
   end
 
 end
