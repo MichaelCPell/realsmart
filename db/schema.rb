@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151023182842) do
+ActiveRecord::Schema.define(version: 20151026122740) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,17 @@ ActiveRecord::Schema.define(version: 20151023182842) do
     t.string   "number"
     t.float    "shape_len"
     t.float    "shape_area"
+    t.geometry "geom",        limit: {:srid=>4326, :type=>"multi_polygon"}
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "neighborhoods", force: :cascade do |t|
+    t.string   "state"
+    t.string   "county_name"
+    t.string   "city_name"
+    t.string   "name"
+    t.string   "region_id"
     t.geometry "geom",        limit: {:srid=>4326, :type=>"multi_polygon"}
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -132,6 +143,7 @@ ActiveRecord::Schema.define(version: 20151023182842) do
     t.float    "latitude"
     t.float    "longitude"
     t.geometry "location",                 limit: {:srid=>4326, :type=>"geometry"}
+    t.integer  "geocode_attempt",                                                   default: 0
   end
 
 end

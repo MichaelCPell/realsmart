@@ -7,11 +7,12 @@ class Voter < ActiveRecord::Base
 
 
 	def geocode
+
 		begin
 			puts "#{id} being scanned"
 			# response = HTTParty.get("http://184.72.183.157/geocode/#{CGI.escape self.geocode_address}")
 
-			response = HTTParty.get("http://52.23.215.247/?locate=#{CGI.escape self.geocode_address}")
+			response = HTTParty.get("http://54.172.132.125/?locate=#{CGI.escape self.geocode_address}")
 
 			# binding.pry
 
@@ -24,6 +25,7 @@ class Voter < ActiveRecord::Base
 
 			puts "#{id} updated successfully!"
 		rescue
+			self.update_attributes(geocode_attempt: geocode_attempt + 1)
 			puts "FAILED #{id}!"
 		end
 	end

@@ -1,9 +1,9 @@
-starting_point = 6_400_000
+starting_point = 2000000
 
-(0..5).each do |num|
+(0..49).each do |num|
 
-	start_range = starting_point + num * 1000
-	end_range = start_range + 1000
+	start_range = starting_point + num * 20000
+	end_range = start_range + 20000
 
 	puts "#{start_range} and #{end_range}"
 
@@ -11,6 +11,8 @@ starting_point = 6_400_000
 	puts pid
 	Process.detach(pid)
 
+
+	sleep 5
 end
 
 
