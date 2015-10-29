@@ -11,13 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151026122740) do
+ActiveRecord::Schema.define(version: 20151028174406) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "postgis"
   enable_extension "postgis_topology"
   enable_extension "fuzzystrmatch"
+
+  create_table "constitutes", force: :cascade do |t|
+    t.integer  "voter_id"
+    t.integer  "district_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "constitutes", ["district_id"], name: "index_demog.constitutes_on_district_id", using: :btree
+  add_index "constitutes", ["voter_id"], name: "index_demog.constitutes_on_voter_id", using: :btree
 
   create_table "districts", force: :cascade do |t|
     t.string   "county_name"
@@ -146,4 +156,6 @@ ActiveRecord::Schema.define(version: 20151026122740) do
     t.integer  "geocode_attempt",                                                   default: 0
   end
 
+  add_foreign_key "constitutes", "districts"
+  add_foreign_key "constitutes", "voters"
 end

@@ -1,0 +1,168 @@
+    <script type="text/javascript" src="https://www.google.com/jsapi?autoload={'modules':[{'name':'visualization','version':'1.1','packages':['bar']}]}"></script>
+
+    <script>
+        google.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable(<%=raw @district.demographic_matrix %>);
+
+        var options = {
+          chart: {
+          
+          },
+          bars: 'vertical',
+          vAxis: {format: 'decimal'},
+          height: 300,
+          colors: ['#E51919', '#4A90E2','#64336F', '#F5A623',]
+        };
+
+        var chart = new google.charts.Bar(document.getElementById('chart_div'));
+
+        chart.draw(data, google.charts.Bar.convertOptions(options));
+
+        
+      }
+    </script>
+
+    <script type="text/javascript" src="https://www.google.com/jsapi?autoload={'modules':[{'name':'visualization','version':'1.1','packages':['corechart']}]}"></script>
+
+    <script>
+            google.setOnLoadCallback(drawChart);
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['Party', 'Percentage'],
+          ['Republican',   <%= @district.voters_by_party["REP"] %>],
+          ['Democrat',     <%= @district.voters_by_party["DEM"] %>],
+        ]);
+
+        var options = {
+          height: 300,
+          width: 400,
+          colors: ['#E51919', '#4A90E2',],
+          chartArea: {
+            backgroundColor: "black"
+          },
+          backgroundColor: "transparent"
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+      }
+    </script>
+
+    <style>
+      .fa-circle, .fa-circle-thin {
+        font-size: 20px;
+      }
+
+      .fa-home, .fa-phone, .fa-envelope-o, .fa-clock-o, .fa-users, .fa-check-square-o{
+        font-size: 40px;
+      }
+
+
+    </style>
+
+ </head>
+
+  <body>
+
+    
+  <div class="container" id="ribbon">
+    <div class="col-md-8 col-md-offset-2">
+      <h1 class="ribbon">
+       <strong class="giant-title">
+       	<%= @district.full_name %> is Predicted to go to the <%= @district.winner %>!!</strong>
+      </h1>
+    </div>
+    <div class="col-md-2 rating centered">
+        <p class="text">Contestability Rating:</p>
+        <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle-thin"></i> <i class="fa fa-circle-thin"></i>
+        <p class="text">Moderately Contestable</p>
+      </div>
+  </div>
+
+  <div class="container" id="section-1">
+    <div class="row titles-row">
+      <div class="col-md-2 col-md-offset-1">
+        <p class="title-graph centered">Expected turnout by party</p>
+      </div>
+      <div class="col-md-3 col-md-offset-3">
+        <p class="title-graph centered">Party affiliations by age</p>
+        <br>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3  pie-chart">
+        <div id="piechart" ></div>
+      </div>
+      <div class="col-md-6 col-md-offset-2 bar-chart">
+        <div id="chart_div"></div>
+      </div>
+      
+    </div>
+
+    
+
+  </div>
+
+  <div class="container" id="section-2">
+    <div class="row section-2">
+      <div class="col-md-4 col-md-offset-4 centered">
+        <p class="title">What you need to Tip the Scales</p>
+        <br>
+        <br>
+      </div>
+    </div>
+    <div class="row first-row">
+      <div class="col-md-2 col-md-offset-2 centered  sq-1">
+        <br>
+        <i class="fa fa-check-square-o"></i>
+        <p class="text-number">17990.1</p>
+        <p class="text-section-3">votes to break even</p>
+      </div>
+      <div class="col-md-3 centered sq-2">
+        <br>
+        <i class="fa fa-users"></i>
+        <p class="text-number">Unaffiliated</p>
+        <p class="text-section-3">Recommended Demographics to go after</p>
+      </div>
+      <div class="col-md-2 centered  sq-3">
+        <br>
+        <i class="fa fa-home"></i>
+        <p class="text-number">3,000</p>
+        <p class="text-section-3">doors to knock</p>
+      </div>
+    </div>
+    <div class="row second-row">
+
+      <div class="col-md-3 col-md-offset-2 centered sq-4">
+        <br>
+        <i class="fa fa-clock-o"></i>
+        <p class="text-number">999.45 </p>
+        <p class="text-section-3">hours with our route optimization</p>
+      </div>
+      <div class="col-md-2 centered  sq-5">
+        <br>
+        <i class="fa fa-phone"></i>
+        <p class="text-number">599.67</p>
+        <p class="text-section-3">hours of phonecalls</p>
+      </div>
+      <div class="col-md-2 centered sq-6">
+        <br>
+        <i class="fa fa-envelope-o"></i>
+        <p class="text-number">$1,1153.86</p>
+        <p class="text-section-3">to send letters</p>
+      </div>
+    </div>
+
+  </div>
+    
+  
+
+  <div class="container-fluid" id="footer">
+    <div class="row">
+
+    </div>
+  </div>
+

@@ -1,4 +1,4 @@
-starting_point = 2000000
+starting_point = 3000000
 
 (0..49).each do |num|
 

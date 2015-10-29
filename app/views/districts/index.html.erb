@@ -1,0 +1,37 @@
+
+
+
+<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
+
+
+ <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+
+ <style>
+ #map { height: 800px; width: 800px;}
+ </style>
+
+<div id="map"></div>
+<script>
+	var map = L.map('map').setView([35.7806, -78.6389], 11);
+
+	L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+	    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+	}).addTo(map);
+
+
+	$.get("/districts/<%= params[:id] %>", function(data){
+			L.geoJson(data, {
+		    style: function (feature) {
+		        return {color: "red"};
+		    },
+		    onEachFeature: function (feature, layer) {
+		        layer.bindPopup(feature.properties.party_cd);
+		    }
+		}).addTo(map);
+	})
+
+
+
+
+
+</script>

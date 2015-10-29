@@ -1,0 +1,206 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700);
+
+body {
+	background-color: #f6f8f8;
+}
+
+.centered {
+	text-align: center;
+}
+
+#header {
+	background-color: white;
+	padding-top: 20px;
+}
+
+#section-1 {
+	background-color: white;
+	padding-bottom: 50px;
+}
+
+#section-2 {
+	background-color: #4A4A4A;
+}
+
+.giant-title {
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 300;
+	padding-top: 50px;
+}
+
+.title {
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 300;
+	font-size: 22px;
+	color: white;
+}
+
+.title-graph {
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 300;
+	font-size: 14px;
+
+	color: #333;
+}
+
+.text {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 14px;
+}
+
+.text-section-2 {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 20px;
+	font-style: italic;
+}
+
+.text-section-3 {
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 300;
+	font-size: 12px;
+}
+
+.text-number {
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 300;
+	font-size: 30px;
+}
+
+.fa-circle, .fa-circle-thin {
+	color: #57AECB;
+}
+
+.rating{
+	/*border: solid 4px #4A4A4A;*/
+	padding-top: 20px;
+}
+
+.section-2 {
+	padding-top: 40px;
+}
+
+.section-3 {
+	padding-top: 40px;
+}
+
+.sq-1 {
+	background-color: #054562;
+	border: solid 4px white;
+	color: white;
+}
+
+.sq-2 {
+	background-color: #A11313;
+	border: solid 4px white;
+	color: white;
+}
+
+.sq-3 {
+	background-color: #054562;
+	border: solid 4px white;
+	color: white;
+}
+
+.sq-4 {
+	background-color: #A11313;
+	border: solid 4px white;
+	color: white;
+}
+
+.sq-5 {
+	background-color: #054562;
+	border: solid 4px white;
+	color: white;
+}
+
+.sq-6 {
+	background-color: #A11313;
+	border: solid 4px white;
+	color: white;
+}
+
+.first-row {
+	padding-left: 100px;
+}
+
+.second-row {
+	padding-left: 100px;
+	padding-bottom: 100px;
+}
+
+.flag-white {
+	background-color: white;
+	padding-bottom: 6px;
+}
+
+.flag-red {
+	background-color: #EF2C2C;
+	padding-bottom: 6px;
+}
+
+.flag-blue {
+	background-color: #006D9F;
+	padding-bottom: 6px;
+}
+
+.titles-row {
+	padding-top: 50px;
+}
+
+
+
+/**/
+
+#ribbon {
+	padding-bottom: 10px;
+}
+
+.ribbon {
+ font-size: 18px !important;
+ /* This ribbon is based on a 16px font side and a 24px vertical rhythm. I've used em's to position each element for scalability. If you want to use a different font size you may have to play with the position of the ribbon elements */
+
+ width: 50%;
+    
+ position: relative;
+ background: #F5A623;
+ color: #fff;
+ text-align: center;
+ padding: 1em 1em; /* Adjust to suit */
+ margin: 1em auto 1em; /* Based on 24px vertical rhythm. 48px bottom margin - normally 24 but the ribbon 'graphics' take up 24px themselves so we double it. */
+}
+.ribbon:before, .ribbon:after {
+ content: "";
+ position: absolute;
+ display: block;
+ bottom: -1em;
+ border: 1.5em solid #C1841F;
+ z-index: -1;
+}
+.ribbon:before {
+ left: -2em;
+ border-right-width: 1.5em;
+ border-left-color: transparent;
+}
+.ribbon:after {
+ right: -2em;
+ border-left-width: 1.5em;
+ border-right-color: transparent;
+}
+.ribbon .ribbon-content:before, .ribbon .ribbon-content:after {
+ content: "";
+ position: absolute;
+ display: block;
+ border-style: solid;
+ border-color: #9D6E20 transparent transparent transparent;
+ bottom: -1em;
+}
+.ribbon .ribbon-content:before {
+ left: 0;
+ border-width: 1em 0 0 1em;
+}
+.ribbon .ribbon-content:after {
+ right: 0;
+ border-width: 1em 1em 0 0;
+}
+
+
