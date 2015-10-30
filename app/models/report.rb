@@ -3,12 +3,21 @@ class Report < ActiveRecord::Base
 
 
 	def winner
-		outcome = data["voters_by_party"]["DEM"] - data["voters_by_party"]["REP"]
+
+
+		rows = data["demographic_matrix"]
+
+		#republican = 
+		republican = (rows[1][1]*0.4 + rows[2][1]*0.55 + rows[3][1]*0.65 + rows[4][1]*0.7)
+
+		democrat = (rows[1][2]*0.4 + rows[2][2]*0.55 + rows[3][2]*0.65 + rows[4][2]*0.7)
+
+		outcome = democrat - republican
 
 		if outcome > 0
-			"Democrats by #{outcome.abs} votes"
+			"Democrats by #{outcome.to_i.abs} votes"
 		elsif outcome < 0
-			"Republicans by #{outcome.abs} votes"
+			"Republicans by #{outcome.to_i.abs} votes"
 		else
 			"Dead Tie!"
 		end
