@@ -1,0 +1,10 @@
+<h1> 2016 Election Predictions </h1>
+<ul>
+	<% @reports.each do |r| %>
+		<li>
+			<%= link_to district_report_path(r.district, r) do %>
+				<%= "#{r.district.full_name}: #{r.winner} "%>
+			<% end %>
+		</li>
+	<% end %>
+</ul>
