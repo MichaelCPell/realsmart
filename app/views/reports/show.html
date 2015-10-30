@@ -75,8 +75,8 @@
     </div>
     <div class="col-md-2 rating centered">
         <p class="text">Contestability Rating:</p>
-        <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> <i class="fa fa-circle-thin"></i> <i class="fa fa-circle-thin"></i>
-        <p class="text">Moderately Contestable</p>
+        <%= star_meter(@report.contestability) %>
+        <p class="text"><%= @report.contestability %></p>
       </div>
   </div>
 

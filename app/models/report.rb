@@ -3,9 +3,7 @@ class Report < ActiveRecord::Base
 
 
 	def winner
-		votes = data["voters_by_party"]
-
-		outcome = votes["DEM"] - votes["REP"]
+		outcome = data["voters_by_party"]["DEM"] - data["voters_by_party"]["REP"]
 
 		if outcome > 0
 			"Democrats by #{outcome.abs} votes"
@@ -14,6 +12,22 @@ class Report < ActiveRecord::Base
 		else
 			"Dead Tie!"
 		end
+	end
+
+
+	def contestability
+		outcome = data["voters_by_party"]["DEM"] - data["voters_by_party"]["REP"]
+
+		difference_percent = outcome.to_f / ( data["voters_by_party"]["DEM"] + data["voters_by_party"]["REP"] + data["voters_by_party"]["UNA"] + data["voters_by_party"]["LIB"])
+
+		if difference_percent < 0.1
+			"Highly Contestable"
+		elsif difference_percent < 0.2
+			"Moderately Contestable"
+		else
+			"Hard to Contest"
+		end
+
 	end
 
 
