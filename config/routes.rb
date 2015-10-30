@@ -3,5 +3,7 @@ Rails.application.routes.draw do
   	resources :reports 
   end
 
-resources :reports, only: [:index]
+	resources :reports, only: [:index]
+
+	root to: "reports#index"
 end
