@@ -13,7 +13,7 @@ class Voter < ActiveRecord::Base
 			puts "#{id} being scanned"
 			# response = HTTParty.get("http://184.72.183.157/geocode/#{CGI.escape self.geocode_address}")
 
-			response = HTTParty.get("http://54.85.211.139/?locate=#{CGI.escape self.geocode_address}")
+			response = HTTParty.get("http://54.165.12.216/?locate=#{CGI.escape self.geocode_address}")
 
 			# binding.pry
 

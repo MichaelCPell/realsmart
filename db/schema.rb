@@ -11,13 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151028174406) do
+ActiveRecord::Schema.define(version: 20151030120710) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "postgis"
   enable_extension "postgis_topology"
   enable_extension "fuzzystrmatch"
+  enable_extension "hstore"
 
   create_table "constitutes", force: :cascade do |t|
     t.integer  "voter_id"
@@ -60,6 +61,16 @@ ActiveRecord::Schema.define(version: 20151028174406) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "reports", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "district_id"
+    t.json     "data",        default: {}
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
+  add_index "reports", ["district_id"], name: "index_demog.reports_on_district_id", using: :btree
 
   create_table "single_family_homes", force: :cascade do |t|
     t.string   "owner_id"
@@ -158,4 +169,5 @@ ActiveRecord::Schema.define(version: 20151028174406) do
 
   add_foreign_key "constitutes", "districts"
   add_foreign_key "constitutes", "voters"
+  add_foreign_key "reports", "districts"
 end
