@@ -2,7 +2,7 @@ class CreateReports < ActiveRecord::Migration
   def up
     create_table "demog.reports" do |t|
       t.string :name
-      t.references :district, index: true, foreign_key: true
+      t.integer :district_id, index: true 
       t.json :data
 
       t.timestamps null: false

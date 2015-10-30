@@ -1,4 +1,5 @@
 class Report < ActiveRecord::Base
+	self.table_name = "demog.reports"
 	belongs_to :district
 
 

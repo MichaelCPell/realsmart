@@ -1,4 +1,5 @@
 class District < ActiveRecord::Base
+	self.table_name = "geom.districts"
 
 	has_many :constitutes
 	has_many :voters, through: :constitutes
