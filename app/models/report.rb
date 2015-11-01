@@ -4,13 +4,9 @@ class Report < ActiveRecord::Base
 
 
 	def winner
-
-
 		rows = data["demographic_matrix"]
 
-		#republican = 
 		republican = (rows[1][1]*0.4 + rows[2][1]*0.55 + rows[3][1]*0.65 + rows[4][1]*0.7)
-
 		democrat = (rows[1][2]*0.4 + rows[2][2]*0.55 + rows[3][2]*0.65 + rows[4][2]*0.7)
 
 		outcome = democrat - republican
@@ -22,6 +18,23 @@ class Report < ActiveRecord::Base
 		else
 			"Dead Tie!"
 		end
+	end
+
+
+	def breakeven
+		rows = data["demographic_matrix"]
+
+		republican = (rows[1][1]*0.4 + rows[2][1]*0.55 + rows[3][1]*0.65 + rows[4][1]*0.7)
+		democrat = (rows[1][2]*0.4 + rows[2][2]*0.55 + rows[3][2]*0.65 + rows[4][2]*0.7)
+
+		outcome = democrat - republican
+
+
+		(outcome/2).abs.round 
+	end
+
+	def doors
+		(breakeven/1.5).round
 	end
 
 
