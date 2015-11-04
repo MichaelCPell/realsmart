@@ -1,4 +1,5 @@
 class District < ActiveRecord::Base
+	include NoGeomOnInspect
 	self.table_name = "geom.districts"
 
 	has_many :constitutes

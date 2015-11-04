@@ -2,8 +2,8 @@ starting_point = 4000000
 
 (0..49).each do |num|
 
-	start_range = starting_point + num * 20000
-	end_range = start_range + 20000
+	start_range = starting_point + num * 10000
+	end_range = start_range + 10000
 
 	puts "#{start_range} and #{end_range}"
 
